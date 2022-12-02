@@ -1,12 +1,23 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { GetExampleDto, PostExampleDto } from './app.dto';
 import { AppService } from './app.service';
 
-@Controller()
+@ApiTags('样例')
+@Controller('api/example')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
+  @Get('hello')
+  getHello() {
     return this.appService.getHello();
+  }
+  @Get('get')
+  getExample(@Query() getExampleDto: GetExampleDto) {
+    return this.appService.getExample(getExampleDto);
+  }
+  @Post('post')
+  postExample(@Body() postExampleDto: PostExampleDto) {
+    return this.appService.postExample(postExampleDto);
   }
 }
