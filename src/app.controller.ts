@@ -1,5 +1,7 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query, Req, Res } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { Request, Response } from 'express';
+import { SuccessRes } from 'util/resWrapper.util';
 import { GetExampleDto, PostExampleDto } from './app.dto';
 import { AppService } from './app.service';
 
@@ -19,5 +21,16 @@ export class AppController {
   @Post('post')
   postExample(@Body() postExampleDto: PostExampleDto) {
     return this.appService.postExample(postExampleDto);
+  }
+  @Get('cookie')
+  setCookie(
+    @Req() request: Request,
+    @Res({ passthrough: true }) response: Response,
+  ) {
+    // 读取cookie
+    const cookie = request.cookies;
+    // 设置cookie
+    response.cookie('set', 'cookie');
+    return SuccessRes(cookie);
   }
 }
