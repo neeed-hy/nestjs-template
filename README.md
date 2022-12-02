@@ -12,13 +12,42 @@
 - 默认开启 Cors
 - 使用 pnpm
 
-一些命令:
+一些命令
 
-```shell
-# 安装依赖
-pnpm install
-# 开发模式启动
-pnpm start:dev
-# 构建
-pnpm build
+```bash
+# 建立 module
+nest g module cats
+# 建立controller
+nest g co cats
+# 建立services
+nest g s cats
+
+# 一键建立crud模板
+nest g resource cats
+```
+
+## Running the app
+
+```bash
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
+```
+
+## Test
+
+```bash
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
 ```
