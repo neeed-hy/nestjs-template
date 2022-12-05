@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppService } from './app.service';
 import { ControllerLogger } from '../middleware/logger.middleware';
 import { DBConfig } from '../DBConfig';
+import { CatsModule } from './cats/cats.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { DBConfig } from '../DBConfig';
       user: DBConfig.dbUser,
       pass: DBConfig.dbPW,
     }),
+    CatsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

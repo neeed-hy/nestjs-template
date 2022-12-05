@@ -5,7 +5,7 @@ import { SuccessRes } from 'util/resWrapper.util';
 import { GetExampleDto, PostExampleDto } from './app.dto';
 import { AppService } from './app.service';
 
-@ApiTags('样例')
+@ApiTags('基本样例')
 @Controller('api/example')
 export class AppController {
   constructor(private readonly appService: AppService) {}
