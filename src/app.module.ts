@@ -2,7 +2,7 @@ import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppService } from './app.service';
-import { ControllerLogger } from '../middleware/logger.middleware';
+import { ControllerLogger } from './middleware/logger.middleware';
 import { DBConfig } from '../DBConfig';
 import { CatsModule } from './cats/cats.module';
 
