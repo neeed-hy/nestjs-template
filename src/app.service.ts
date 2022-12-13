@@ -1,18 +1,18 @@
 import { Injectable } from '@nestjs/common';
-import { SuccessRes } from 'util/resWrapper.util';
+import { ErrorRes } from 'util/resWrapper.util';
 import { GetExampleDto, PostExampleDto } from './app.dto';
 
 @Injectable()
 export class AppService {
   getHello() {
-    return SuccessRes('Hello World!');
+    return 'Hello World!';
   }
   getExample(dto: GetExampleDto) {
     const { id } = dto;
-    return SuccessRes({ id });
+    return ErrorRes({ msg: '错误返回样例', data: { id } });
   }
   postExample(dto: PostExampleDto) {
     const { id } = dto;
-    return SuccessRes({ id });
+    return { id };
   }
 }
