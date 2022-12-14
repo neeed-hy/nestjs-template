@@ -18,12 +18,13 @@ export class CatsService {
     return this.catModel.find().exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} cat`;
+  findOne(id: string) {
+    return this.catModel.findById(id);
   }
 
-  update(id: number, updateCatDto: UpdateCatDto) {
-    return `This action updates a #${id} cat`;
+  update(updateCatDto: UpdateCatDto) {
+    const param = updateCatDto;
+    return this.catModel.findByIdAndUpdate(updateCatDto._id, param);
   }
 
   remove(id: number) {
